@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    user: root
+    container_name: sql_server
+    environment:
+      SA_PASSWORD: "PasswordChallengeGeo2024!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql    
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq_server
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  procesadordepagos:
+    build:
+      context: .
+      dockerfile: ProcesadorDePagos.Api\Dockerfile 
+    ports:
+      - "32775:443"
+      - "32776:80"
+
+  autorizaciondepagos:
+    build:
+      context: .
+      dockerfile: AutorizacionDePagos.Api\Dockerfile
+    ports:
+      - "32773:443"
+      - "32774:80"
+    depends_on:
+      - sqlserver
+      - rabbitmq
+      - procesadordepagos
+
+  
+
+volumes:
+  sqlserver_data:
+
+# Server=localhost,1433;Database=NombreBaseDeDatos;User Id=sa;Password=PasswordChallengeGeo2024!;
+# docker-compose up -d

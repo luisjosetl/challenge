@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "8bcecccf-27da-425d-823d-0e4626b1099a",
+		"name": "challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8792674"
+	},
+	"item": [
+		{
+			"name": "authorization",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorizationRequest\": {\r\n    \"monto\": \"500\",\r\n    \"codigoOperacion\": \"CLIENTE_PRIMERO_APROBADO\",\r\n    \"tipoAutorizacion\": \"COBRO\",\r\n    \"clienteId\": \"094532e6-be77-4d5a-93c8-3d54131d4337\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:32774/api/authorization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorization denegado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorizationRequest\": {\r\n    \"monto\": \"500.78\",\r\n    \"codigoOperacion\": \"CLIENTE_PRIMERO_DENEGADO\",\r\n    \"tipoAutorizacion\": \"COBRO\",\r\n    \"clienteId\": \"094532e6-be77-4d5a-93c8-3d54131d4337\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:32774/api/authorization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorization segundo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorizationRequest\": {\r\n    \"monto\": \"700\",\r\n    \"codigoOperacion\": \"CLIENTE_SEGUNDO_1\",\r\n    \"tipoAutorizacion\": \"COBRO\",\r\n    \"clienteId\": \"585ac58c-35fe-4f19-9b0d-99fad357940a\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:32774/api/authorization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorization segundo 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorizationRequest\": {\r\n    \"monto\": \"90000\",\r\n    \"codigoOperacion\": \"CLIENTE_SEGUNDO_2\",\r\n    \"tipoAutorizacion\": \"COBRO\",\r\n    \"clienteId\": \"585ac58c-35fe-4f19-9b0d-99fad357940a\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:32774/api/authorization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approved-authorizations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:32774/api/authorization/approved-authorizations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization",
+						"approved-authorizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reverse-authorizations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:32774/api/authorization/reverse-authorizations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization",
+						"reverse-authorizations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authorizations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:32774/api/authorization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "32774",
+					"path": [
+						"api",
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
